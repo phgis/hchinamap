@@ -1,0 +1,111 @@
+---
+title: "Mapping China and its provinces, municipalities and autonomous regions"
+author: "Zhenxing Cheng"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mapping China and its provinces, municipalities and autonomous regions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Installation
+
+You can install this package from `github`: 
+
+```{r eval=FALSE, include=TRUE}
+devtools::install_github('czxa/hchinamap')
+# or use git
+devtools::install_git("https://github.com/czxa/hchinamap.git")
+```
+
+## Usage
+
+### Mapping China: 
+
+```{r echo=TRUE}
+library(dplyr)
+library(magrittr)
+library(hchinamap)
+china <- hchinamap::chinadf %>% 
+  dplyr::filter(region == "中国")
+hchinamap(name = china$name, value = china$value,
+           width = "100%", height = "400px",
+           title = "Map of China")
+```
+
+Modify the maximum and minimum colors: 
+
+```{r echo=TRUE}
+china <- chinadf %>%
+  dplyr::filter(region == "中国")
+hchinamap(name = china$name, value = china$value,
+           width = "100%", height = "400px",
+           title = "中国地图",
+           minColor = "#f1eef6",
+           maxColor = "#980043")
+```
+
+## Mapping provinces
+
+For example, map of Anhui
+
+```{r echo=TRUE}
+anhui <- chinadf %>%
+  dplyr::filter(region == "安徽")
+hchinamap(name = anhui$name, value = anhui$value,
+           width = "100%", height = "500px",
+           title = "Map of Anhui", region = "安徽")
+```
+
+Map of Guangdong：
+
+```{r echo=TRUE}
+gd <- chinadf %>%
+  dplyr::filter(region == "广东")
+hchinamap(name = gd$name, value = gd$value,
+           width = "100%", height = "400px",
+           title = "Map of Guangdong", region = "广东")
+```
+
+Map of Heilongjiang：
+
+```{r echo=TRUE}
+hlj <- chinadf %>%
+  dplyr::filter(region == "黑龙江")
+hchinamap(name = hlj$name, value = hlj$value,
+           width = "100%", height = "400px",
+           title = "黑龙江地图", region = "黑龙江")
+```
+
+## Theme
+
+If there are multiple map charts created by this package in a RMarkdown document, use topic parameters carefully, because the charts may interfere with each other.
+
+```{r echo=TRUE}
+sx <- chinadf %>%
+  dplyr::filter(region == "陕西")
+hchinamap(name = sx$name, value = sx$value,
+           width = "100%", height = "400px",
+           title = "Map of Shaanxi", region = "陕西",
+           theme = "darkunica",
+           titleColor = "white")
+```
+
+
+## Use it in 'RMarkdown' and 'Shiny' Apps
+
+Here if a very simple 'shiny' example:
+
+```{r eval=FALSE, include=TRUE}
+dir <- system.file("examples", "hchinamap", package = "hchinamap")
+setwd(dir)
+shiny::shinyAppDir(".")
+```

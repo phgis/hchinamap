@@ -1,0 +1,42 @@
+# (uncomment to add a dependency)
+dependencies:
+ - name: hchinamap
+   version: 7.0.3
+   src: htmlwidgets/lib/
+   script:
+    - highmaps.js
+    - hebei.js
+    - anhui.js
+    - aomen.js
+    - beijing.js
+    - china.js
+    - chongqing.js
+    - fujian.js
+    - gansu.js
+    - guangdong.js
+    - guangxi.js
+    - guizhou.js
+    - hainan.js
+    - heilongjiang.js
+    - henan.js
+    - hubei.js
+    - hunan.js
+    - jiangsu.js
+    - jiangxi.js
+    - jilin.js
+    - liaoning.js
+    - neimenggu.js
+    - ningxia.js
+    - qinghai.js
+    - shandong.js
+    - shanghai.js
+    - shanxi.js
+    - shanxi2.js
+    - sichuan.js
+    - tianjin.js
+    - xianggang.js
+    - xinjiang.js
+    - xizang.js
+    - yunnan.js
+    - zhejiang.js
+   stylesheet:

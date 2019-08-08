@@ -1,0 +1,22 @@
+Package: hchinamap
+Type: Package
+Title: Mapping China and its provinces using R + Highmaps
+Version: 0.1.0
+Authors@R: person("Zhenxing", "Cheng", email = "czxjnu@163.com", role = c("aut", "cre"))
+Description: Mapping China and its provinces using R + Highmaps.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Date: 2019-08-07
+URL: https://github.com/czxa/hchinamap
+BugReports: https://github.com/czxa/hchinamap/issues
+LazyData: true
+RoxygenNote: 6.1.1
+Depends: R (>= 3.0.0)
+Suggests: 
+    knitr,
+    rmarkdown,
+    magrittr,
+    dplyr,
+    shiny
+VignetteBuilder: knitr
+Imports: htmlwidgets
