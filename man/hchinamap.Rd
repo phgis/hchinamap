@@ -4,15 +4,15 @@
 \alias{hchinamap}
 \title{hchinamap：Mapping China and its provinces, municipalities and autonomous regions using R and 'Highmaps'}
 \usage{
-hchinamap(name, value, region = NULL, width = NULL, height = NULL,
-  elementId = NULL, itermName = "Random data", title = "",
-  titleAlign = "center", titleSize = "20px", titleColor = "#333333",
-  subtitle = "", subtitleAlign = "center", subtitleSize = "",
-  subtitleColor = "#666666", min = 0, minColor = "rgb(255,255,255)",
-  maxColor = "#006cee", legendLayout = "horizontal",
-  legendAlign = "center", legendTitle = "",
-  legendVerticalAlign = "bottom", hoverColor = "#a4edba",
-  theme = "sunset")
+hchinamap(name, value, region = "中国", width = NULL,
+  height = NULL, elementId = NULL, itermName = "Random data",
+  title = "", titleAlign = "center", titleSize = "20px",
+  titleColor = "#333333", subtitle = "", subtitleAlign = "center",
+  subtitleSize = "", subtitleColor = "#666666", min = 0,
+  minColor = "rgb(255,255,255)", maxColor = "#006cee",
+  legendLayout = "horizontal", legendAlign = "center",
+  legendTitle = "", legendVerticalAlign = "bottom",
+  hoverColor = "#a4edba", theme = "sunset")
 }
 \arguments{
 \item{name}{Name vector of provinces or prefecture-level cities in China. The name of a province is short for two or three words. The name of a city does not include "市", such as "广州". For the municipality directly under the Central Government and the districts under the administrative region, the name should contain "区", such as "上海市黄浦区". You can find the corresponding name in the data set "chinadf" provided by the package.}

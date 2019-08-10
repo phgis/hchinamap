@@ -38,7 +38,7 @@ china <- hchinamap::chinadf %>%
   dplyr::filter(region == "中国")
 hchinamap(name = china$name, value = china$value,
            width = "100%", height = "400px",
-           title = "Map of China")
+           title = "中国地图", region = "中国")
 ```
 
 Modify the maximum and minimum colors: 

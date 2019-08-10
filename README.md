@@ -11,9 +11,9 @@
 你可以从 `github` 上安装这个包:
 
 ```r
-devtools::install_github('hchinamap')
+devtools::install_github('hchinamap', build_vignettes = TRUE)
 # 或者使用git
-devtools::install_git("https://github.com/czxa/hchinamap.git")
+devtools::install_git("https://github.com/czxa/hchinamap.git", build_vignettes = TRUE)
 ```
 
 ## 概览

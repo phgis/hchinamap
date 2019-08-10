@@ -17,6 +17,7 @@ Suggests:
     rmarkdown,
     magrittr,
     dplyr,
-    shiny
+    shiny,
+    colourpicker
 VignetteBuilder: knitr
 Imports: htmlwidgets

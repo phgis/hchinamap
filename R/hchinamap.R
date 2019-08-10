@@ -45,7 +45,7 @@
 #'
 #' @export
 hchinamap <- function(name, value,
-                       region = NULL,
+                       region = "中国",
                        width = NULL, height = NULL,
                        elementId = NULL,
                        itermName = "Random data",
