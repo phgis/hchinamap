@@ -112,7 +112,7 @@ ui <- fluidPage(
                 inputId = "legendAlign",
                 label = "图例的水平位置：",
                 choices = c("left", "center", "right"),
-                selected = "center"
+                selected = "left"
             ),
             textInput(
                 inputId = "legendTitle",
@@ -135,14 +135,14 @@ ui <- fluidPage(
             )
         ),
         mainPanel(
-           hchinamapOutput("chinamap", width = "100%", 
+           hchinamapOutput("chinamap", width = "100%",
                 height = "500px")
         )
     )
 )
 server <- function(input, output){
     china <- reactive({
-        chinadf %>% 
+        chinadf %>%
             dplyr::filter(region == input$region)
     })
     output$chinamap <- renderHchinamap({
