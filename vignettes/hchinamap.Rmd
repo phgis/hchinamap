@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 You can install this package from `github`: 
 
 ```{r eval=FALSE, include=TRUE}
-devtools::install_github('czxa/hchinamap')
+devtools::install_github('czxa/hchinamap', build_vignettes = TRUE)
 # or use git
-devtools::install_git("https://github.com/czxa/hchinamap.git")
+devtools::install_git("https://github.com/czxa/hchinamap.git", build_vignettes = TRUE)
 ```
 
 ## Usage
