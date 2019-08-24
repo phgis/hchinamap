@@ -28,7 +28,7 @@ devtools::install_git("https://github.com/czxa/hchinamap.git", build_vignettes =
 
 ## 许可证
 
-motherland包依赖于[highcharts](https://www.highcharts.com.cn/)，`highcharts`是一个商业的JS图表库，它同时提供了商业许可和非商业许可。这意味着如果你是非商业使用，你可以免费自由的使用，但是如果你是用于商业和政府，你需要联系[highcharts](https://www.highcharts.com.cn/)以获得许可。motherland包没有从[highcharts](https://www.highcharts.com.cn/)获取任何许可，因此在你使用该包以及[highcharts](https://www.highcharts.com.cn/)前，请谨慎阅读相关许可。
+hchinamap包依赖于[highcharts](https://www.highcharts.com.cn/)，`highcharts`是一个商业的JS图表库，它同时提供了商业许可和非商业许可。这意味着如果你是非商业使用，你可以免费自由的使用，但是如果你是用于商业和政府，你需要联系[highcharts](https://www.highcharts.com.cn/)以获得许可。motherland包没有从[highcharts](https://www.highcharts.com.cn/)获取任何许可，因此在你使用该包以及[highcharts](https://www.highcharts.com.cn/)前，请谨慎阅读相关许可。
 
 ## 获取vignettes
 
