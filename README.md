@@ -1,6 +1,10 @@
 # hchinamap：使用R + Highmaps绘制中国以及各个省市自治区地图
 
-> 由于含有不可替代的中文，这个包是肯定不能提交给 CRAN 了。
+> 爲了把這個 R 提交給CRAN，我把region參數修改爲英語，因此，在CRAN上的那個版本中 region 參數爲英文，具體可以參考我提供的 vignettes。
+<!-- badges: start -->
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/czxa/hchinamap?branch=master&svg=true)](https://ci.appveyor.com/project/czxa/hchinamap) [![Travis build status](https://travis-ci.org/czxa/hchinamap.svg?branch=master)](https://travis-ci.org/czxa/hchinamap) [![Rdoc](http://www.rdocumentation.org/badges/version/hchinamap)](http://www.rdocumentation.org/packages/hchinamap) ![](http://cranlogs.r-pkg.org/badges/grand-total/hchinamap?color=green) ![](http://cranlogs.r-pkg.org/badges/hchinamap?color=green) ![](http://cranlogs.r-pkg.org/badges/last-week/hchinamap?color=green) [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/czxa/hchinamap/master) [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) ![](https://visitor-count-badge.herokuapp.com/total.svg?repo_id=czxa.hchinamap) [![Code Climate](https://codeclimate.com/github/czxa/hchinamap/badges/gpa.svg)](https://codeclimate.com/github/dwyl/esta) [![HitCount](http://hits.dwyl.com/czxa/hchinamap.svg)](http://hits.dwyl.com/czxa/hchinamap)
+<!-- badges: end -->
+
 
 ## 引言
 
