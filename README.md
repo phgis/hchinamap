@@ -12,7 +12,13 @@
 
 ## 安装
 
-你可以从 `github` 上安装这个包:
+你可以從 `CRAN` 上安装这个这个包：
+
+```r
+install.packages("hchinamap", build_vignettes = TRUE)
+```
+
+你也可以从 `github` 上安装这个包:
 
 ```r
 devtools::install_github('hchinamap', build_vignettes = TRUE)
