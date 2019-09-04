@@ -2,24 +2,24 @@
 % Please edit documentation in R/hchinamap.R
 \name{hchinamap}
 \alias{hchinamap}
-\title{hchinamap：Mapping China and its provinces, municipalities and autonomous regions using R and 'Highmaps'}
+\title{'hchinamap': Mapping China and Its Provinces, Municipalities and Autonomous Regions using R and 'Highmaps'}
 \usage{
-hchinamap(name, value, region = "中国", width = NULL,
-  height = NULL, elementId = NULL, itermName = "Random data",
-  title = "", titleAlign = "center", titleSize = "20px",
-  titleColor = "#333333", subtitle = "", subtitleAlign = "center",
-  subtitleSize = "", subtitleColor = "#666666", min = 0,
-  minColor = "rgb(255,255,255)", maxColor = "#006cee",
-  legendLayout = "horizontal", legendAlign = "center",
-  legendTitle = "", legendVerticalAlign = "bottom",
-  hoverColor = "#a4edba", theme = "sunset")
+hchinamap(name, value, region = "China", width = NULL, height = NULL,
+  elementId = NULL, itermName = "Random data", title = "",
+  titleAlign = "center", titleSize = "20px", titleColor = "#333333",
+  subtitle = "", subtitleAlign = "center", subtitleSize = "",
+  subtitleColor = "#666666", min = 0, minColor = "rgb(255,255,255)",
+  maxColor = "#006cee", legendLayout = "horizontal",
+  legendAlign = "center", legendTitle = "",
+  legendVerticalAlign = "bottom", hoverColor = "#a4edba",
+  theme = "sunset")
 }
 \arguments{
-\item{name}{Name vector of provinces or prefecture-level cities in China. The name of a province is short for two or three words. The name of a city does not include "市", such as "广州". For the municipality directly under the Central Government and the districts under the administrative region, the name should contain "区", such as "上海市黄浦区". You can find the corresponding name in the data set "chinadf" provided by the package.}
+\item{name}{Chinese name vector of provinces or prefecture-level cities in China.}
 
 \item{value}{Value vector;}
 
-\item{region}{You can choose "中国" "山西", "陕西", "内蒙古" and so on. There is no provincial data for Taiwan.}
+\item{region}{Region name in English, Such as "China", "Anhui" ...;}
 
 \item{width}{Chart width;}
 
@@ -66,22 +66,22 @@ darkgreen/darkblue/avocado/darkunica/gray/
 gridlight/grid/sandsignika/sunset;}
 }
 \description{
-hchinamap：Mapping China and its provinces, municipalities and autonomous regions using R and 'Highmaps'
+By binding R functions and the 'Highmaps' <https://www.highcharts.com.cn/products/highmaps> chart library,'hchinamap' package provides a simple way to map China and its provinces. The map of China drawn by this package contains complete Chinese territory, especially the Nine-dotted line, South Tibet, Hong Kong, Macao and Taiwan.
 }
 \note{
-Because the map data of Taiwan Bay have not been collated yet, it is impossible to draw provincial map of Taiwan Province for the time being.
+Because the map data of Taiwan have not been collated yet, it is impossible to draw provincial map of Taiwan Province for the time being.
 }
 \examples{
-library(dplyr)
 library(hchinamap)
+library(dplyr)
 library(magrittr)
+dir <- tempdir()
+download.file('https://czxb.github.io/br/chinadf.rda', file.path(dir, 'chinadf.rda'))
+load(file.path(dir, 'chinadf.rda'), verbose = TRUE)
 china <- chinadf \%>\%
-  dplyr::filter(region == "中国")
-if(interactive()){
-  hchinamap(name = china$name, value = china$value,
-             title = "中国地图",
-             minColor = "#f1eef6",
-             maxColor = "#980043",
-             subtitle = "czxa.top")
+  dplyr::filter(region == "China")
+if(interactive()) {
+   hchinamap(name = china$name, value = china$value, region = "China")
 }
+
 }

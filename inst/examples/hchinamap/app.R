@@ -5,130 +5,130 @@ library(magrittr)
 library(colourpicker)
 ui <- fluidPage(
     # Application title
-    titlePanel("hchinamap 示例"),
+    titlePanel("Hchinamap Shiny Example"),
     sidebarLayout(
         sidebarPanel(
             textInput(
                 inputId = "title",
-                label = "输入地图标题：",
-                value = "地图示例",
-                placeholder = "地图示例"
+                label = "Input chart title: ",
+                value = "Map Example",
+                placeholder = "Map Example"
             ),
             selectInput(
                 inputId = "region",
-                label = "选择国家或省份：",
-                choices = c("中国", "安徽", "澳门", "北京", "重庆", "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "河南", "黑龙江", "湖北", "湖南", "吉林", "江苏", "江西", "辽宁", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "上海", "四川", "天津", "西藏", "香港", "新疆", "浙江", "云南"),
-                selected = "中国"
+                label = "Chose region parameter：",
+                choices = c("China", "Beijing", "Tianjin", "Hebei", "Shanxi", "Inner Mongolia", "Liaoning", "Jilin", "Heilongjiang", "Shanghai", "Jiangsu", "Zhejiang", "Anhui", "Fujian", "Jiangxi", "Shandong", "Henan", "Hubei", "Hunan", "Guangdong", "Guangxi", "Hainan", "Chongqing", "Sichuan", "Guizhou", "Yunan", "Tibet", "Shaanxi", "Gansu", "Qinghai", "Ningxia", "Xinjiang", "Taiwan", "Hong Kong", "Macao"),
+                selected = "China"
             ),
             selectInput(
                 inputId = "theme",
-                label = "选择主题：",
+                label = "Choose a theme: ",
                 choices = c("darkgreen", "darkblue", "avocado", "darkunica", "gray", "gridlight", "grid", "sandsignika", "sunset"),
                 selected = "sunset"
             ),
             textInput(
                 inputId = "height",
-                label = "图表高度：",
+                label = "Chart Height: ",
                 placeholder = "500px",
                 value = "500px"
             ),
             textInput(
                 inputId = "width",
-                label = "图表宽度：",
+                label = "Chart Width: ",
                 placeholder = "100%",
                 value = "100%"
             ),
             textInput(
                 inputId = "itermName",
-                label = "提示框里数据的名称：",
-                placeholder = "随机数据",
-                value = "随机数据"
+                label = "Data attributes in tooltip: ",
+                placeholder = "Random data",
+                value = "Random data"
             ),
             selectInput(
                 inputId = "titleAlign",
-                label = "标题的水平位置：",
+                label = "The horizontal position of the title: ",
                 choices = c("left", "center", "right"),
                 selected = 'center'
             ),
             textInput(
                 inputId = "titleSize",
-                label = "标题的大小：",
+                label = "The size of the title:",
                 placeholder = "20px",
                 value = "20px"
             ),
             colourInput(
                 inputId = "titleColor",
-                label = "标题的颜色：",
+                label = "The color of the title:",
                 value = "#333333",
                 showColour = "background",
                 allowTransparent = TRUE
             ),
             textInput(
                 inputId = "subtitle",
-                label = "图表副标题：",
+                label = "Chart subtitle: ",
                 placeholder = "https://www.czxa.top",
                 value = ""
             ),
             selectInput(
                 inputId = "subtitleAlign",
-                label = "副标题的水平位置：",
+                label = "The horizontal position of the subtitle: ",
                 choices = c("left", "center", "right"),
                 selected = "center"
             ),
             colourInput(
                 inputId = "subtitleColor",
-                label = "副标题的颜色：",
+                label = "Subtitle color: ",
                 value = "#666666",
                 showColour = "background",
                 allowTransparent = TRUE
             ),
             textInput(
                 inputId = "min",
-                label = "标度的最小值",
+                label = "Minimum scale: ",
                 placeholder = "0",
                 value = "0"
             ),
             colourInput(
                 inputId = "minColor",
-                label = "标度的最小值处的颜色：",
+                label = "The color at the minimum of the scale: ",
                 value = "rgb(255,255,255)",
                 showColour = "background",
                 allowTransparent = TRUE
             ),
             colourInput(
                 inputId = "maxColor",
-                label = "标度的最大值处的颜色：",
+                label = "The color at the maximum of the scale: ",
                 value = "#006cee",
                 showColour = "background",
                 allowTransparent = TRUE
             ),
             selectInput(
                 inputId = "legendLayout",
-                label = "图例的方向：",
+                label = "The direction of the legend: ",
                 choices = c("horizontal", "vertical"),
                 selected = "horizontal"
             ),
             selectInput(
                 inputId = "legendAlign",
-                label = "图例的水平位置：",
+                label = "Horizontal position of the legend: ",
                 choices = c("left", "center", "right"),
                 selected = "left"
             ),
             textInput(
                 inputId = "legendTitle",
-                label = "图例的标题",
+                label = "Title of the legend: ",
                 placeholder = "",
                 value = ""
             ),
             selectInput(
                 inputId = "legendVerticalAlign",
-                label = "图例的竖直位置：",
+                label = "Vertical position of the legend: ",
                 choices = c("top", "center", "bottom"),
                 selected = "center"
             ),
             colourInput(
                 inputId = "hoverColor",
-                label = "鼠标掠过时区域的颜色：",
+                label = "The color of the area when the mouse is over: ",
                 value = "#a4edba",
                 showColour = "background",
                 allowTransparent = TRUE

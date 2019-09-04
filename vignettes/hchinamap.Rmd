@@ -1,10 +1,10 @@
 ---
-title: "Mapping China and its provinces, municipalities and autonomous regions"
+title: "Mapping China and Its provinces, Municipalities and Autonomous Regions"
 author: "Zhenxing Cheng"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Mapping China and its provinces, municipalities and autonomous regions}
+  %\VignetteIndexEntry{Mapping China and Its provinces, Municipalities and Autonomous Regions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,9 +18,12 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install this package from `github`: 
+You can install this package from `CRAN` or `GitHub`: 
 
 ```{r eval=FALSE, include=TRUE}
+# From CRAN
+install.packages('hchinamap', build_vignettes = TRUE)
+# From  GitHub
 devtools::install_github('czxa/hchinamap', build_vignettes = TRUE)
 # or use git
 devtools::install_git("https://github.com/czxa/hchinamap.git", build_vignettes = TRUE)
@@ -28,61 +31,75 @@ devtools::install_git("https://github.com/czxa/hchinamap.git", build_vignettes =
 
 ## Usage
 
+I made a demo datasets for this package. You can load it by following method:
+
+```{r}
+dir <- tempdir()
+download.file('https://czxb.github.io/br/chinadf.rda', file.path(dir, 'chinadf.rda'))
+load(file.path(dir, 'chinadf.rda'), verbose = TRUE)
+```
+
+## Additional annotations to parameters
+
++ region parameter indicate which map to use, you can choose like "China", "Anhui", ... "Macao" and so on. Because the map data of Taiwan have not been collated yet, it is impossible to draw provincial map of Taiwan Province for the time being.
++ name parameter should be in Chinese. like c("北京", "天津", "上海").
+
 ### Mapping China: 
 
 ```{r echo=TRUE}
 library(dplyr)
 library(magrittr)
 library(hchinamap)
-china <- hchinamap::chinadf %>% 
-  dplyr::filter(region == "中国")
+china <- chinadf %>% 
+  dplyr::filter(region == "China")
 hchinamap(name = china$name, value = china$value,
            width = "100%", height = "400px",
-           title = "中国地图", region = "中国")
+           title = "Map of China", region = "China")
 ```
 
 Modify the maximum and minimum colors: 
 
 ```{r echo=TRUE}
 china <- chinadf %>%
-  dplyr::filter(region == "中国")
+  dplyr::filter(region == "China")
 hchinamap(name = china$name, value = china$value,
+          region = "China",
            width = "100%", height = "400px",
-           title = "中国地图",
+           title = "Map of China",
            minColor = "#f1eef6",
            maxColor = "#980043")
 ```
 
 ## Mapping provinces
 
-For example, map of Anhui
+For example, map of Anhui:
 
 ```{r echo=TRUE}
 anhui <- chinadf %>%
-  dplyr::filter(region == "安徽")
+  dplyr::filter(region == "Anhui")
 hchinamap(name = anhui$name, value = anhui$value,
            width = "100%", height = "500px",
-           title = "Map of Anhui", region = "安徽")
+           title = "Map of Anhui", region = "Anhui")
 ```
 
 Map of Guangdong：
 
 ```{r echo=TRUE}
 gd <- chinadf %>%
-  dplyr::filter(region == "广东")
+  dplyr::filter(region == "Guangdong")
 hchinamap(name = gd$name, value = gd$value,
            width = "100%", height = "400px",
-           title = "Map of Guangdong", region = "广东")
+           title = "Map of Guangdong", region = "Guangdong")
 ```
 
 Map of Heilongjiang：
 
 ```{r echo=TRUE}
 hlj <- chinadf %>%
-  dplyr::filter(region == "黑龙江")
+  dplyr::filter(region == "Heilongjiang")
 hchinamap(name = hlj$name, value = hlj$value,
            width = "100%", height = "400px",
-           title = "黑龙江地图", region = "黑龙江")
+           title = "Map of Heilongjiang", region = "Heilongjiang")
 ```
 
 ## Theme
@@ -91,10 +108,10 @@ If there are multiple map charts created by this package in a RMarkdown document
 
 ```{r echo=TRUE}
 sx <- chinadf %>%
-  dplyr::filter(region == "陕西")
+  dplyr::filter(region == "Shaanxi")
 hchinamap(name = sx$name, value = sx$value,
            width = "100%", height = "400px",
-           title = "Map of Shaanxi", region = "陕西",
+           title = "Map of Shaanxi", region = "Shaanxi",
            theme = "darkunica",
            titleColor = "white")
 ```
@@ -109,3 +126,16 @@ dir <- system.file("examples", "hchinamap", package = "hchinamap")
 setwd(dir)
 shiny::shinyAppDir(".")
 ```
+------------
+
+<h4 align="center">
+
+License
+
+</h4>
+
+<h6 align="center">
+
+MIT © czxa.top
+
+</h6>

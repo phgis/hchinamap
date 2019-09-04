@@ -1,9 +1,9 @@
-#' @title hchinamap：Mapping China and its provinces, municipalities and autonomous regions using R and 'Highmaps'
-#'
-#' @note Because the map data of Taiwan Bay have not been collated yet, it is impossible to draw provincial map of Taiwan Province for the time being.
-#' @param name Name vector of provinces or prefecture-level cities in China. The name of a province is short for two or three words. The name of a city does not include "市", such as "广州". For the municipality directly under the Central Government and the districts under the administrative region, the name should contain "区", such as "上海市黄浦区". You can find the corresponding name in the data set "chinadf" provided by the package.
+#' @title 'hchinamap': Mapping China and Its Provinces, Municipalities and Autonomous Regions using R and 'Highmaps'
+#' @description By binding R functions and the 'Highmaps' <https://www.highcharts.com.cn/products/highmaps> chart library,'hchinamap' package provides a simple way to map China and its provinces. The map of China drawn by this package contains complete Chinese territory, especially the Nine-dotted line, South Tibet, Hong Kong, Macao and Taiwan.
+#' @note Because the map data of Taiwan have not been collated yet, it is impossible to draw provincial map of Taiwan Province for the time being.
+#' @param name Chinese name vector of provinces or prefecture-level cities in China.
 #' @param value Value vector;
-#' @param region You can choose "中国" "山西", "陕西", "内蒙古" and so on. There is no provincial data for Taiwan.
+#' @param region Region name in English, Such as "China", "Anhui" ...;
 #' @param width Chart width;
 #' @param height Chart height;
 #' @param itermName Data attributes in tooltip;
@@ -27,25 +27,24 @@
 #' darkgreen/darkblue/avocado/darkunica/gray/
 #' gridlight/grid/sandsignika/sunset;
 #' @param elementId NULL
+#' @import htmlwidgets
 #'
 #' @examples
-#' library(dplyr)
 #' library(hchinamap)
+#' library(dplyr)
 #' library(magrittr)
+#' dir <- tempdir()
+#' download.file('https://czxb.github.io/br/chinadf.rda', file.path(dir, 'chinadf.rda'))
+#' load(file.path(dir, 'chinadf.rda'), verbose = TRUE)
 #' china <- chinadf %>%
-#'   dplyr::filter(region == "中国")
-#' if(interactive()){
-#'   hchinamap(name = china$name, value = china$value,
-#'              title = "中国地图",
-#'              minColor = "#f1eef6",
-#'              maxColor = "#980043",
-#'              subtitle = "czxa.top")
+#'   dplyr::filter(region == "China")
+#' if(interactive()) {
+#'    hchinamap(name = china$name, value = china$value, region = "China")
 #' }
-#' @import htmlwidgets
 #'
 #' @export
 hchinamap <- function(name, value,
-                       region = "中国",
+                       region = "China",
                        width = NULL, height = NULL,
                        elementId = NULL,
                        itermName = "Random data",
