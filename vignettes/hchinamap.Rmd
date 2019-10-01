@@ -22,7 +22,8 @@ You can install this package from `CRAN` or `GitHub`:
 
 ```{r eval=FALSE, include=TRUE}
 # From CRAN
-install.packages('hchinamap', build_vignettes = TRUE)
+install.packages('hchinamap')
+
 # From  GitHub
 devtools::install_github('czxa/hchinamap', build_vignettes = TRUE)
 # or use git
