@@ -1,7 +1,7 @@
 Package: hchinamap
 Type: Package
 Title: Mapping China and Its Provinces
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Zhenxing", "Cheng", email = "czxjnu@163.com", role = c("aut", "cre"))
 Description: By binding R functions and the 'Highmaps' <https://www.highcharts.com.cn/products/highmaps> chart library, 'hchinamap' package provides a simple way to map China and its provinces. The map of China drawn by this package contains complete Chinese territory, especially the Nine-dotted line, South Tibet, Hong Kong, Macao and Taiwan.
 License: MIT + file LICENSE

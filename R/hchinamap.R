@@ -4,6 +4,12 @@
 #' @param name Chinese name vector of provinces or prefecture-level cities in China.
 #' @param value Value vector;
 #' @param region Region name in English, Such as "China", "Anhui" ...;
+#' @param theme Chart theme, you can choose one from:
+#' darkgreen/darkblue/avocado/darkunica/gray/
+#' gridlight/grid/sandsignika/sunset;
+#' @param mapNavigation show map navigation or not, 1 means show, 0 means not;
+#' @param mapNavigationVerticalAlign Map navigation vertical align, top/bottom;
+#' @param mapNavigationAlign map navigation align, center/left/right;
 #' @param width Chart width;
 #' @param height Chart height;
 #' @param itermName Data attributes in tooltip;
@@ -23,9 +29,6 @@
 #' @param legendTitle The title of the legend;
 #' @param legendVerticalAlign The vertical position of legends, top/center/bottom;
 #' @param hoverColor The color of the area when the mouse is hovering.
-#' @param theme Chart theme, you can choose one from:
-#' darkgreen/darkblue/avocado/darkunica/gray/
-#' gridlight/grid/sandsignika/sunset;
 #' @param elementId NULL
 #' @import htmlwidgets
 #'
@@ -64,6 +67,9 @@ hchinamap <- function(name, value,
                        legendTitle = "",
                        legendVerticalAlign = "bottom",
                        hoverColor = '#a4edba',
+                       mapNavigation = 1,
+                       mapNavigationVerticalAlign = "bottom",
+                       mapNavigationAlign = "left",
                        theme = "sunset") {
 
   # forward options using x
@@ -88,6 +94,9 @@ hchinamap <- function(name, value,
     legendVerticalAlign = legendVerticalAlign,
     region = region,
     hoverColor = hoverColor,
+    mapNavigation = mapNavigation,
+    mapNavigationVerticalAlign = mapNavigationVerticalAlign,
+    mapNavigationAlign = mapNavigationAlign,
     theme = theme
   )
 

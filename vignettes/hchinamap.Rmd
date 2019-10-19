@@ -1,10 +1,10 @@
 ---
-title: "Mapping China and Its provinces, Municipalities and Autonomous Regions"
+title: "Create Maps of China and Maps of Chinese Provinces, Municipalities and Autonomous Regions"
 author: "Zhenxing Cheng"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Mapping China and Its provinces, Municipalities and Autonomous Regions}
+  %\VignetteIndexEntry{Create Maps of China and Maps of Chinese Provinces, Municipalities and Autonomous Regions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -45,7 +45,7 @@ load(file.path(dir, 'chinadf.rda'), verbose = TRUE)
 + region parameter indicate which map to use, you can choose like "China", "Anhui", ... "Macao" and so on. Because the map data of Taiwan have not been collated yet, it is impossible to draw provincial map of Taiwan Province for the time being.
 + name parameter should be in Chinese. like c("北京", "天津", "上海").
 
-### Mapping China: 
+### Chinese map:
 
 ```{r echo=TRUE}
 library(dplyr)
@@ -55,7 +55,7 @@ china <- chinadf %>%
   dplyr::filter(region == "China")
 hchinamap(name = china$name, value = china$value,
            width = "100%", height = "400px",
-           title = "Map of China", region = "China")
+          region = "China")
 ```
 
 Modify the maximum and minimum colors: 
@@ -66,12 +66,11 @@ china <- chinadf %>%
 hchinamap(name = china$name, value = china$value,
           region = "China",
            width = "100%", height = "400px",
-           title = "Map of China",
            minColor = "#f1eef6",
            maxColor = "#980043")
 ```
 
-## Mapping provinces
+## Provinces map:
 
 For example, map of Anhui:
 
@@ -105,7 +104,7 @@ hchinamap(name = hlj$name, value = hlj$value,
 
 ## Theme
 
-If there are multiple map charts created by this package in a RMarkdown document, use topic parameters carefully, because the charts may interfere with each other.
+If there are multiple map charts created by this package in a RMarkdown document, use topic parameters carefully, because these charts may interfere with each other.
 
 ```{r echo=TRUE}
 sx <- chinadf %>%
@@ -113,20 +112,51 @@ sx <- chinadf %>%
 hchinamap(name = sx$name, value = sx$value,
            width = "100%", height = "400px",
            title = "Map of Shaanxi", region = "Shaanxi",
-           theme = "darkunica",
+           theme = "sandsignika",
            titleColor = "white")
 ```
 
+## Other parameters
+
+Here is a complete example with all parameters:
+
+```{r}
+hchinamap(name = sx$name, value = sx$value,
+          width = "100%", height = "400px",
+          region = "Shaanxi",
+          itermName = "Random data",
+          title = "Map of Shaanxi",
+          titleAlign = "center",
+          titleSize = "20px",
+          titleColor = "#333333",
+          subtitle = "czxa.top",
+          subtitleAlign = 'center',
+          subtitleSize = "16px",
+          subtitleColor = "#666666",
+          min = 0,
+          minColor = "rgb(255,255,255)",
+          maxColor = "#006cee",
+          legendLayout = "horizontal",
+          legendAlign = "center",
+          legendTitle = "Random Data",
+          legendVerticalAlign = "bottom",
+          hoverColor = '#a4edba',
+          mapNavigation = 0,
+          mapNavigationVerticalAlign = "bottom",
+          mapNavigationAlign = "left",
+          theme = "sunset")
+```
 
 ## Use it in 'RMarkdown' and 'Shiny' Apps
 
-Here if a very simple 'shiny' example:
+Here is a very simple 'shiny' example:
 
 ```{r eval=FALSE, include=TRUE}
 dir <- system.file("examples", "hchinamap", package = "hchinamap")
 setwd(dir)
 shiny::shinyAppDir(".")
 ```
+
 ------------
 
 <h4 align="center">

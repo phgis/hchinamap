@@ -3,6 +3,11 @@ library(hchinamap)
 library(dplyr)
 library(magrittr)
 library(colourpicker)
+
+dir <- tempdir()
+download.file('https://czxb.github.io/br/chinadf.rda', file.path(dir, 'chinadf.rda'))
+load(file.path(dir, 'chinadf.rda'), verbose = TRUE)
+
 ui <- fluidPage(
     # Application title
     titlePanel("Hchinamap Shiny Example"),
@@ -21,22 +26,28 @@ ui <- fluidPage(
                 selected = "China"
             ),
             selectInput(
+                inputId = "mapNavigation",
+                label = "Map Navigation?",
+                choices = c("Yes" = "1", "No" = "0"),
+                selected = "Yes"
+            ),
+            selectInput(
+                inputId = "mapNavigationVerticalAlign",
+                label = "Map Navigation Vertical Align:",
+                choices = c("top", "bottom"),
+                selected = "bottom"
+            ),
+            selectInput(
+                inputId = "mapNavigationAlign",
+                label = "Map Navigation Align:",
+                choices = c("left", "center", "right"),
+                selected = "left"
+            ),
+            selectInput(
                 inputId = "theme",
                 label = "Choose a theme: ",
                 choices = c("darkgreen", "darkblue", "avocado", "darkunica", "gray", "gridlight", "grid", "sandsignika", "sunset"),
                 selected = "sunset"
-            ),
-            textInput(
-                inputId = "height",
-                label = "Chart Height: ",
-                placeholder = "500px",
-                value = "500px"
-            ),
-            textInput(
-                inputId = "width",
-                label = "Chart Width: ",
-                placeholder = "100%",
-                value = "100%"
             ),
             textInput(
                 inputId = "itermName",
@@ -149,7 +160,6 @@ server <- function(input, output){
         hchinamap(name = china()$name,
                   value = china()$value,
                   region = input$region,
-                  width = input$width, height = input$height,
                   title = input$title,
                   subtitle = input$subtitle,
                   itermName = input$itermName,
@@ -167,7 +177,10 @@ server <- function(input, output){
                   legendTitle = input$legendTitle,
                   legendVerticalAlign = input$legendVerticalAlign,
                   hoverColor = input$hoverColor,
-                  theme = input$theme)
+                  theme = input$theme,
+                  mapNavigation = input$mapNavigation,
+                  mapNavigationAlign = input$mapNavigationAlign,
+                  mapNavigationVerticalAlign = input$mapNavigationVerticalAlign)
     })
 }
 

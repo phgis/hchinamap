@@ -12,7 +12,8 @@ hchinamap(name, value, region = "China", width = NULL, height = NULL,
   maxColor = "#006cee", legendLayout = "horizontal",
   legendAlign = "center", legendTitle = "",
   legendVerticalAlign = "bottom", hoverColor = "#a4edba",
-  theme = "sunset")
+  mapNavigation = 1, mapNavigationVerticalAlign = "bottom",
+  mapNavigationAlign = "left", theme = "sunset")
 }
 \arguments{
 \item{name}{Chinese name vector of provinces or prefecture-level cities in China.}
@@ -60,6 +61,12 @@ hchinamap(name, value, region = "China", width = NULL, height = NULL,
 \item{legendVerticalAlign}{The vertical position of legends, top/center/bottom;}
 
 \item{hoverColor}{The color of the area when the mouse is hovering.}
+
+\item{mapNavigation}{show map navigation or not, 1 means show, 0 means not;}
+
+\item{mapNavigationVerticalAlign}{Map navigation vertical align, top/bottom;}
+
+\item{mapNavigationAlign}{map navigation align, center/left/right;}
 
 \item{theme}{Chart theme, you can choose one from:
 darkgreen/darkblue/avocado/darkunica/gray/

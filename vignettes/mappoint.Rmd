@@ -1,0 +1,63 @@
+---
+title: "Mark points on Chinese maps and Chinese province maps"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mark points on Chinese mps and Chinese province maps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The second function of this package is marking points on Chinese maps and its province maps.
+
+I also made a demo dataset for it, which comes from [Highcharts | Map data center](https://www.highcharts.com.cn/mapdata). To mark points on a map, you need four vector: category, name, latitude, longitude:
+
+```{r}
+library(hchinamap)
+library(dplyr)
+library(magrittr)
+dir <- tempdir()
+download.file('https://czxb.github.io/br/chinamappointdf.rda', file.path(dir, 'chinamappointdf.rda'))
+load(file.path(dir, 'chinamappointdf.rda'), verbose = TRUE)
+df <- chinamappointdf
+chinamappoint(
+	cat = df$cat, name = df$name,
+	lat = df$lat, lon = df$lon,
+	title = "Urban distribution in China",
+	subtitle = "Data source: People's daily",
+	width = "100%", height = "500px")
+```
+
+If you want to mark points on a province map, you need to use provincepoint() function, which is similar to chinamappoint(), but has one more parameter: region, this parameter is used to specify which province map to use, such as "anhui", "hubei", and so on.
+
+```{r}
+df <- chinamappointdf %>% dplyr::filter(province == "Shandong")
+provincepoint(cat = df$cat, name = df$name,
+    lat = df$lat, lon = df$lon, region = "shandong",
+    title = "Urban distribution in Shandong Province",
+    subtitle = "Data source: People's daily",
+    width = "100%", height = "500px",
+    markerRadius = 8)
+```
+
+Note: It seems that chinamappoint() and provincepoint() cannot be used in Shiny Applications. I'm working on it!
+
+------------
+
+<h4 align="center">
+
+License
+
+</h4>
+
+<h6 align="center">
+
+MIT © czxa.top
+
+</h6>
